@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.jfrog.artifactory'
 apply plugin: 'maven-publish'
 
-def artifactName = 'awesomelibrary'
 def packageName = 'com.jeroenmols.awesomelibrary'
 def libraryVersion = '1.0.0'
 
@@ -35,10 +34,10 @@ publishing {
         aar(MavenPublication) {
             groupId packageName
             version = libraryVersion
-            artifactId artifactName
+            artifactId project.getName()
 
             // Tell maven to prepare the generated "*.aar" file for publishing
-            artifact("$buildDir/outputs/aar/$artifactName-release.aar")
+            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
         }
     }
 }
