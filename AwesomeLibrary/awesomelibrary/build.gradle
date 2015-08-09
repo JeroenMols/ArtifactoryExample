@@ -24,11 +24,10 @@ android {
     }
 }
 
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "ar.com.synergian:wagon-git:0.2.0"
 }
-
 
 publishing {
     publications {
@@ -39,9 +38,40 @@ publishing {
 
             // Tell maven to prepare the generated "*.aar" file for publishing
             artifact("$buildDir/outputs/aar/$artifactName-release.aar")
+
+            pom.withXml {
+                def pluginRepositories = asNode().appendNode('pluginRepositories')
+                def pluginRepository = pluginRepositories.appendNode('pluginRepository')
+                pluginRepository.appendNode('id', 'synergian-repo')
+                pluginRepository.appendNode('url', 'https://raw.github.com/synergian/wagon-git/releases')
+
+                def build = asNode().appendNode('build')
+                def extensions = build.appendNode('extensions')
+                def extension = extensions.appendNode('extension')
+                extension.appendNode('groupId', 'ar.com.synergian')
+                extension.appendNode('artifactId','wagon-git')
+                extension.appendNode('version','0.2.5-git')
+
+            }
         }
     }
+
+    repositories {
+        maven {
+            // change to point to your repo, e.g. http://my.org/repo
+            url "git:releases://git@bitbucket.org:jmols/android_test_wagon-git.git"
+        }
+
+    }
 }
+
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: "repo url") {
+//                authentication(userName: yourbitbucketusername,
+//                        password: yourbitbucketpassword)
+//            }
 
 artifactory {
     contextUrl = 'http://localhost:8081/artifactory'

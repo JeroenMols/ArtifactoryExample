@@ -15,13 +15,5 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven { url "http://localhost:8081/artifactory/libs-release-local" }
-        maven {
-            credentials {
-                username 'jmols'
-                password 'Hurtshoehorse89/'
-            }
-            url "https://api.bitbucket.org/1.0/repositories/jmols/android_test_wagon-git/raw/releases"
-        }
     }
 }

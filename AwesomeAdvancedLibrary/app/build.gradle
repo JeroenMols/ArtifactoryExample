@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "com.jeroenmols.awesomeapplication"
+        applicationId "com.jeroenmols.awesomeadvancedlibrary"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
@@ -22,6 +22,4 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.jeroenmols.awesomelibrary:awesomelibrary:2.0.0'
-    compile 'org.hello:gs-maven-android:0.6.0'
 }
