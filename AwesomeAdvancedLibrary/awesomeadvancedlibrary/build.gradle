@@ -3,7 +3,7 @@ apply plugin: 'com.jfrog.artifactory'
 apply plugin: 'maven-publish'
 
 def packageName = 'com.jeroenmols.awesomeadvancedlibrary'
-def libraryVersion = '1.0.0'
+def libraryVersion = '1.0.0-SNAPSHOT'
 
 android {
     compileSdkVersion 22
@@ -56,7 +56,7 @@ artifactory {
     publish {
         repository {
             // The Artifactory repository key to publish to
-            repoKey = 'libs-release-local'
+            repoKey = libraryVersion.endsWith('SNAPSHOT') ? 'libs-snapshot-local' : 'libs-release-local'
 
             username = artifactory_username
             password = artifactory_password
