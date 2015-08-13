@@ -15,12 +15,12 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        // NOTE: configure your virtual repository in artifactory to make this work
+        // NOTE: configure your virtual repository and user in artifactory to make this work
 //        maven {
 //            url "http://localhost:8081/artifactory/libs-snapshot-local"
 //            credentials {
 //                username 'consumer'
-//                password 'APA52uxnRkmxeRXmJqd7haMpwgg'
+//                password '<enter API key here>'
 //            }
 //        }
 
