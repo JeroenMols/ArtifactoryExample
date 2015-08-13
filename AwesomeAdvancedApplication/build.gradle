@@ -16,9 +16,15 @@ allprojects {
     repositories {
         jcenter()
         // NOTE: configure your virtual repository in artifactory to make this work
-        maven { url "http://localhost:8081/artifactory/libs-local" }
+//        maven {
+//            url "http://localhost:8081/artifactory/libs-snapshot-local"
+//            credentials {
+//                username 'consumer'
+//                password 'APA52uxnRkmxeRXmJqd7haMpwgg'
+//            }
+//        }
 
-//        maven { url "http://localhost:8081/artifactory/libs-release-local" }
-//        maven { url "http://localhost:8081/artifactory/libs-snapshot-local" }
+        maven { url "http://localhost:8081/artifactory/libs-release-local" }
+        maven { url "http://localhost:8081/artifactory/libs-snapshot-local" }
     }
 }
